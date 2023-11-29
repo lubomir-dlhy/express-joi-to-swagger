@@ -18,6 +18,12 @@ export const requestSchema = (translateFn: any) => Joi.object({
 	})
 }).description(userEndpointDesc)
 
+export const userSchema = Joi.object({
+	id: Joi.number().required(),
+	name: Joi.string(),
+	surname: Joi.string().allow(null)
+}).meta({ className: 'User' })
+
 export const responseSchema = Joi.object({
 	user: Joi.object({
 		id: Joi.number(),
